@@ -35,6 +35,18 @@ class Student(db.Model, FyyurSession):
     __tablename__ = 'students'
     id = db.Column(db.Integer(), primary_key=True)
     name = db.Column(db.String(), unique=True, nullable=False)
+    title = db.Column(db.String(), unique=True, nullable=False)
+
+    def format(self) -> dict:
+        return {'id': self.id, 'name': self.name}
+
+    def __repr__(self) -> str:
+        return f'{self.id} - {self.name}'
+
+class Department(db.Model, FyyurSession):
+    __tablename__ = 'departments'
+    id = db.Column(db.Integer(), primary_key=True)
+    name = db.Column(db.String(), unique=True, nullable=False)
 
     def format(self) -> dict:
         return {'id': self.id, 'name': self.name}

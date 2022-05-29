@@ -1,7 +1,7 @@
 from flask import Flask,request, abort, jsonify
 from flask_migrate import Migrate
 from sqlalchemy.exc import SQLAlchemyError
-from model import Interest, db, migrate, config, Student
+from model import db, migrate, config, Student
 
 def create_app() -> Flask:
     app = Flask(__name__)
